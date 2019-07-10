@@ -10,13 +10,13 @@ void JoyControl::handle(char code) {
    /*if (code == 'S')
       hbridge.move(x, y);*/
         
-   if (code == 'Y') 
+   if (code == 'L') 
       hbridge.left() ;
 
-   else if (code == 'P') 
+   else if (code == 'N') 
       hbridge.forward();
 
-   else if (code== 'B')
+   else if (code== 'M')
       hbridge.right();
 
    else if (code=='A') 

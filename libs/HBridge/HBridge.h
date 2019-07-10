@@ -3,14 +3,14 @@
 
 class HBridge {
 private:
-   int m1, m2, m3, m4, pwm1, pwm2;
-   void setMotorsPWM(bool, bool, bool, bool, short, short);
-   void setMotors(bool, bool, bool, bool);
+   uint8_t m1, m2, m3, m4, pwm1, pwm2;
+   void setMotorsPWM(bool, bool, bool, bool, uint8_t, uint8_t);
+   void setMotors(uint8_t, uint8_t, uint8_t, uint8_t);
    bool PWMEnabled = false;
 
 public:
-   HBridge(int, int, int, int, int, int);
-   HBridge(int, int, int, int);
+   HBridge(uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t);
+   HBridge(uint8_t, uint8_t, uint8_t, uint8_t);
 
    void move(short, short);
   

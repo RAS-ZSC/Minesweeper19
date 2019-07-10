@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include <HBridge.h>
 
-HBridge::HBridge(int lm1, int lm2, int rm1, int rm2, int pwm1, int pwm2) {
+HBridge::HBridge(uint8_t lm1, uint8_t lm2, uint8_t rm1, uint8_t rm2, uint8_t pwm1, uint8_t pwm2) {
    this->m1 = lm1;
    this->m2 = lm2;
    this->m3 = rm1;
@@ -22,7 +22,7 @@ HBridge::HBridge(int lm1, int lm2, int rm1, int rm2, int pwm1, int pwm2) {
    PWMEnabled = true;
 }
 
-HBridge::HBridge(int lm1, int lm2, int rm1, int rm2) {
+HBridge::HBridge(uint8_t lm1, uint8_t lm2, uint8_t rm1, uint8_t rm2) {
    this->m1 = lm1;
    this->m2 = lm2;
    this->m3 = rm1;
@@ -34,7 +34,7 @@ HBridge::HBridge(int lm1, int lm2, int rm1, int rm2) {
    pinMode(rm2, OUTPUT);
 }
 
-void HBridge::setMotorsPWM(bool m1, bool m2, bool m3, bool m4, short pwm1, short pwm2) {
+void HBridge::setMotorsPWM(bool m1, bool m2, bool m3, bool m4, uint8_t pwm1, uint8_t pwm2) {
    digitalWrite(this->m1, m1);
    digitalWrite(this->m2, m2);
    digitalWrite(this->m3, m3);
@@ -46,15 +46,15 @@ void HBridge::setMotorsPWM(bool m1, bool m2, bool m3, bool m4, short pwm1, short
    }
 }
 
-void HBridge::setMotors(int m1, int m2, int m3, int m4) {
+void HBridge::setMotors(uint8_t m1, uint8_t m2, uint8_t m3, uint8_t m4) {
    digitalWrite(this->m1, m1);
    digitalWrite(this->m2, m2);
    digitalWrite(this->m3, m3);
    digitalWrite(this->m4, m4);
 
    if (PWMEnabled) {
-        analogWrite(this->pwm1, 255);  //review driver's restrictions 
-        analogWrite(this->pwm2, 255);
+        analogWrite(this->pwm1, 240);  //review driver's restrictions 
+        analogWrite(this->pwm2, 240);
    }
 }
 
@@ -72,19 +72,19 @@ void HBridge::move(short l, short r) {
 }
 
 void HBridge::forward() {
-   setMotors(1, 0, 1, 0);
+   setMotors(240, 0, 240, 0);
 }
 
 void HBridge::backward() {
-   setMotors(0, 1, 0, 1);
+   setMotors(0, 240, 0, 240);
 }
 
 void HBridge::left() {
-   setMotors(1,0 , 0, 1);
+   setMotors(240, 0, 0, 240);
 }
 
 void HBridge::right() {
-   setMotors(0, 1, 1, 0);
+   setMotors(0, 240, 240, 0);
 }
 
 void HBridge::stop() {
