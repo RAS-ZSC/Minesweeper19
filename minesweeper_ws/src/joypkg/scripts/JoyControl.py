@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python
 from __future__ import division
 from std_msgs.msg import Int8, String
 import rospy
@@ -169,13 +169,13 @@ def buttonscontrol(event):
         elif event.button == PS3_BUTTON_LB :        
             print("BUTTON_LB")
             #rospy.loginfo('LB')
-            #pub.publish('P')
-            Mode = 'P'
+            pub.publish('L')
+            Mode = 'L'
         elif event.button == PS3_BUTTON_LT :
             print("BUTTON_LT")
             #rospy.loginfo('LT')
-            #pub.publish('P')
-            Mode = 'P'
+            pub.publish('R')
+            Mode = 'R'
         elif event.button == PS3_BUTTON_Back :
             print("BUTTON_Back")
             #rospy.loginfo('Back')
@@ -198,7 +198,7 @@ def buttonscontrol(event):
 #Announcment for start 
 #pub.publish(0000)
 
-while True:
+while not rospy.is_shutdown():
     #read in joystick events
     events = pygame.event.get()
    

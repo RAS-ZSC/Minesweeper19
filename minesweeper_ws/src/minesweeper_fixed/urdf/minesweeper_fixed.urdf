@@ -1,0 +1,308 @@
+<robot
+  name="minesweeper_fixed">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.010143 0.18985 0.19232"
+        rpy="0 0 0" />
+      <mass
+        value="4.5836" />
+      <inertia
+        ixx="0.076032"
+        ixy="-0.00012019"
+        ixz="3.4319E-05"
+        iyy="0.11567"
+        iyz="0.0025605"
+        izz="0.083756" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minesweeper_fixed/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minesweeper_fixed/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="metal_detector">
+    <inertial>
+      <origin
+        xyz="1.0773E-15 -0.22807 4.1633E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.33106" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minesweeper_fixed/meshes/metal_detector.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minesweeper_fixed/meshes/metal_detector.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="metal_detector_joint"
+    type="fixed">
+    <origin
+      xyz="0.01059 0.47668 0.068608"
+      rpy="-0.0079479 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="metal_detector" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="lwheel_top">
+    <inertial>
+      <origin
+        xyz="-0.0051929 1.3878E-17 -6.1409E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.91952" />
+      <inertia
+        ixx="4.6827E-31"
+        ixy="-6.2434E-20"
+        ixz="-3.9487E-18"
+        iyy="3.3329E-05"
+        iyz="0"
+        izz="3.3329E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minesweeper_fixed/meshes/lwheel_top.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.098039 0.098039 0.098039 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minesweeper_fixed/meshes/lwheel_top.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lwheel_top_joint"
+    type="fixed">
+    <origin
+      xyz="-0.23286 -0.019657 0.11955"
+      rpy="1.2329 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="lwheel_top" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="rwheel_top">
+    <inertial>
+      <origin
+        xyz="8.6389E-16 2.7756E-16 -0.0052623"
+        rpy="0 0 0" />
+      <mass
+        value="0.91952" />
+      <inertia
+        ixx="3.3329E-05"
+        ixy="-1.6164E-31"
+        ixz="4.1702E-18"
+        iyy="3.3329E-05"
+        iyz="1.2919E-18"
+        izz="5.719E-31" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minesweeper_fixed/meshes/rwheel_top.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.96471 0.2549 0.2549 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minesweeper_fixed/meshes/rwheel_top.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rwheel_top_joint"
+    type="fixed">
+    <origin
+      xyz="0.24359 -0.019657 0.11955"
+      rpy="-1.5708 6.123E-17 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="rwheel_top" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="lwheel_bot">
+    <inertial>
+      <origin
+        xyz="8.3267E-16 2.7756E-16 -0.0052623"
+        rpy="0 0 0" />
+      <mass
+        value="0.91952" />
+      <inertia
+        ixx="3.3329E-05"
+        ixy="-1.5734E-31"
+        ixz="3.6477E-18"
+        iyy="3.3329E-05"
+        iyz="1.4439E-18"
+        izz="4.6623E-31" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minesweeper_fixed/meshes/lwheel_bot.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.96471 0.2549 0.2549 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minesweeper_fixed/meshes/lwheel_bot.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lwheel_bot_joint"
+    type="fixed">
+    <origin
+      xyz="-0.22241 -0.39965 0.12257"
+      rpy="1.5708 6.123E-17 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="lwheel_bot" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="rwheel_bot">
+    <inertial>
+      <origin
+        xyz="8.8818E-16 3.0531E-16 -0.0052623"
+        rpy="0 0 0" />
+      <mass
+        value="0.91952" />
+      <inertia
+        ixx="3.3329E-05"
+        ixy="-1.6221E-31"
+        ixz="3.9517E-18"
+        iyy="3.3329E-05"
+        iyz="1.3679E-18"
+        izz="5.2473E-31" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minesweeper_fixed/meshes/rwheel_bot.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.96471 0.2549 0.2549 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minesweeper_fixed/meshes/rwheel_bot.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rwheel_bot_joint"
+    type="fixed">
+    <origin
+      xyz="0.24359 -0.39965 0.12257"
+      rpy="-1.5708 6.123E-17 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="rwheel_bot" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

@@ -1,0 +1,308 @@
+<robot
+  name="minesweeper_continuous">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0101433552629742 -0.192322168082269 0.189852556981618"
+        rpy="0 0 0" />
+      <mass
+        value="4.58359555572016" />
+      <inertia
+        ixx="0.0760321104523467"
+        ixy="-3.43185580070933E-05"
+        ixz="-0.000120186704237009"
+        iyy="0.0837563494744535"
+        iyz="-0.00256045265833032"
+        izz="0.11566932850329" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minesweeper_continuous/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minesweeper_continuous/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="metal_detector">
+    <inertial>
+      <origin
+        xyz="1.07899800205757E-15 -0.22806788732392 4.16333634234434E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.331064296239242" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minesweeper_continuous/meshes/metal_detector.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minesweeper_continuous/meshes/metal_detector.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="metal_detector_joint"
+    type="fixed">
+    <origin
+      xyz="0.01059 0.47668 0.068608"
+      rpy="-0.0079479 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="metal_detector" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="lwheel_top">
+    <inertial>
+      <origin
+        xyz="-0.00519285108722001 -1.38777878078145E-17 -6.17561557447743E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.919521013052642" />
+      <inertia
+        ixx="4.68017115076158E-31"
+        ixy="-6.24338586096898E-20"
+        ixz="-3.94871222062398E-18"
+        iyy="3.33293690650387E-05"
+        iyz="0"
+        izz="3.33293690650387E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minesweeper_continuous/meshes/lwheel_top.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.0980392156862745 0.0980392156862745 0.0980392156862745 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minesweeper_continuous/meshes/lwheel_top.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lwheel_top_joint"
+    type="continuous">
+    <origin
+      xyz="-0.23286 -0.019657 0.11955"
+      rpy="1.2329 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="lwheel_top" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="rwheel_top">
+    <inertial>
+      <origin
+        xyz="8.6389229103645E-16 2.77555756156289E-16 -0.00526226622066422"
+        rpy="0 0 0" />
+      <mass
+        value="0.919521013052642" />
+      <inertia
+        ixx="3.33293690650388E-05"
+        ixy="-1.61638769722281E-31"
+        ixz="4.17020283687496E-18"
+        iyy="3.33293690650388E-05"
+        iyz="1.29190794035306E-18"
+        izz="5.71900925139603E-31" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minesweeper_continuous/meshes/rwheel_top.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.964705882352941 0.254901960784314 0.254901960784314 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minesweeper_continuous/meshes/rwheel_top.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rwheel_top_joint"
+    type="continuous">
+    <origin
+      xyz="0.24359 -0.019657 0.11955"
+      rpy="-1.5708 6.123E-17 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="rwheel_top" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="lwheel_bot">
+    <inertial>
+      <origin
+        xyz="8.32667268468867E-16 2.77555756156289E-16 -0.0052622662206642"
+        rpy="0 0 0" />
+      <mass
+        value="0.919521013052642" />
+      <inertia
+        ixx="3.33293690650385E-05"
+        ixy="-1.57335119809088E-31"
+        ixz="3.64774006687922E-18"
+        iyy="3.33293690650385E-05"
+        iyz="1.44389710980636E-18"
+        izz="4.66234656866467E-31" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minesweeper_continuous/meshes/lwheel_bot.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.964705882352941 0.254901960784314 0.254901960784314 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minesweeper_continuous/meshes/lwheel_bot.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lwheel_bot_joint"
+    type="continuous">
+    <origin
+      xyz="-0.22241 -0.39965 0.12257"
+      rpy="1.5708 6.123E-17 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="lwheel_bot" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="rwheel_bot">
+    <inertial>
+      <origin
+        xyz="8.88178419700125E-16 3.05311331771918E-16 -0.00526226622066425"
+        rpy="0 0 0" />
+      <mass
+        value="0.919521013052642" />
+      <inertia
+        ixx="3.33293690650391E-05"
+        ixy="-1.62209374989523E-31"
+        ixz="3.95171840578586E-18"
+        iyy="3.33293690650391E-05"
+        iyz="1.36790252507972E-18"
+        izz="5.2472571903168E-31" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minesweeper_continuous/meshes/rwheel_bot.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.964705882352941 0.254901960784314 0.254901960784314 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://minesweeper_continuous/meshes/rwheel_bot.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rwheel_bot_joint"
+    type="continuous">
+    <origin
+      xyz="0.24359 -0.39965 0.12257"
+      rpy="-1.5708 6.123E-17 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="rwheel_bot" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+</robot>
