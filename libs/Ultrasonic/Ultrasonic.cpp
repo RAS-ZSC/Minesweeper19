@@ -2,7 +2,7 @@
 #include<Ultrasonic.h>
 
 Ultrasonic::Ultrasonic(uint8_t trig, uint8_t echo){
-    this->trigh = trig;
+    this->trig = trig;
     this->echo = echo;
  
     pinMode(trig, OUTPUT);
@@ -16,7 +16,7 @@ float Ultrasonic::getDistanceCm(){
     delayMicroseconds(10);
     digitalWrite(trig, LOW);
 
-    return pulseIn(echo, High) * 0.017;
+    return pulseIn(echo, HIGH) * 0.017;
 }
 float Ultrasonic::getDistanceM(){
     digitalWrite(trig, LOW);
