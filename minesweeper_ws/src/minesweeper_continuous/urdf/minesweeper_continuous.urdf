@@ -197,7 +197,7 @@
     <child
       link="rwheel_top" />
     <axis
-      xyz="1 0 0" />
+      xyz="0 0 1" />
   </joint>
   <link
     name="lwheel_bot">
@@ -250,7 +250,7 @@
     <child
       link="lwheel_bot" />
     <axis
-      xyz="1 0 0" />
+      xyz="0 0 1" />
   </joint>
   <link
     name="rwheel_bot">
@@ -303,6 +303,6 @@
     <child
       link="rwheel_bot" />
     <axis
-      xyz="1 0 0" />
+      xyz="0 0 1" />
   </joint>
 </robot>
