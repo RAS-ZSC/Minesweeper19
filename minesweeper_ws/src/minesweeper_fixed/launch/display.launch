@@ -4,6 +4,9 @@
   <arg
     name="gui"
     default="False" />
+  <arg name="initial_pose_x" value="5.0"/> 
+  <arg name="initial_pose_y" value="-4.5"/>
+  <arg name="initial_pose_z" value="0.0"/>
   <param
     name="robot_description"
     textfile="$(find minesweeper_fixed)/urdf/minesweeper_fixed.urdf" />
@@ -23,9 +26,4 @@
     pkg="rviz"
     type="rviz"
     args="-d $(find minesweeper_fixed)/urdf.rviz" />
-  <node pkg="tf" 
-   type="static_transform_publisher" 
-   name="link1_broadcaster" 
-   args="5 -4.5 0 0 0 0.5 0.5 world test_link 100" />
-<arg name="initial_pose_x" value="5.0"/> <arg name="initial_pose_y" value="-4.5"/> <arg name="initial_pose_z" value="0.0"/>
 </launch>
