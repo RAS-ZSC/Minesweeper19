@@ -6,9 +6,6 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /TF1
-        - /TF1/Frames1
-        - /TF1/Tree1
       Splitter Ratio: 0.5
     Tree Height: 565
   - Class: rviz/Selection
@@ -97,42 +94,6 @@ Visualization Manager:
       Update Interval: 0
       Value: true
       Visual Enabled: true
-    - Class: rviz/TF
-      Enabled: true
-      Frame Timeout: 15
-      Frames:
-        All Enabled: true
-        base_link:
-          Value: true
-        lwheel_bot:
-          Value: true
-        lwheel_top:
-          Value: true
-        metal_detector:
-          Value: true
-        rwheel_bot:
-          Value: true
-        rwheel_top:
-          Value: true
-      Marker Scale: 1
-      Name: TF
-      Show Arrows: true
-      Show Axes: true
-      Show Names: true
-      Tree:
-        base_link:
-          lwheel_bot:
-            {}
-          lwheel_top:
-            {}
-          metal_detector:
-            {}
-          rwheel_bot:
-            {}
-          rwheel_top:
-            {}
-      Update Interval: 0
-      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -158,25 +119,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 4.61435938
+      Distance: 18.8911819
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.640074074
-        Y: -0.302766711
-        Z: 0.480844051
+        X: 0
+        Y: 0
+        Z: 0
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 1.4847964
+      Pitch: 1.24039757
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 5.64354753
+      Yaw: 6.19358206
     Saved: ~
 Window Geometry:
   Displays:
@@ -194,5 +155,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1200
-  X: 264
-  Y: 190
+  X: 65
+  Y: 60

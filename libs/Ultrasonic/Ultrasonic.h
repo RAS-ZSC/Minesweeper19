@@ -5,7 +5,7 @@ class Ultrasonic{
     public:
    	// trig - echo pins
     	Ultrasonic(uint8_t, uint8_t);
-    	float getDistanceCm();
+    	int16_t getDistanceCm();
     	float getDistanceM();
 
     private:

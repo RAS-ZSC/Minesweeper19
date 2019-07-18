@@ -8,7 +8,7 @@ Ultrasonic::Ultrasonic(uint8_t trig, uint8_t echo){
     pinMode(trig, OUTPUT);
     pinMode(echo, INPUT);
 }
-float Ultrasonic::getDistanceCm(){
+int16_t Ultrasonic::getDistanceCm(){
     digitalWrite(trig, LOW);
     delayMicroseconds(2);
 
