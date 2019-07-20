@@ -1,5 +1,5 @@
 #include <HBridge.h>
-HBridge hbridge(3, 5, 6, 9);//, 10, 11);
+HBridge hbridge(3, 5, 10, 9);//, 10, 11);
 
 #include <JoyControl.h>
 JoyControl joystick(hbridge);
