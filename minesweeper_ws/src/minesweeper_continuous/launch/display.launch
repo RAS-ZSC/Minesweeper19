@@ -23,8 +23,4 @@
     pkg="rviz"
     type="rviz"
     args="-d $(find minesweeper_continuous)/urdf.rviz" />
-  <node pkg="tf" 
-   type="static_transform_publisher" 
-   name="link1_broadcaster" 
-   args="5 -4.5 0 0 0 0.5 0.5 world base_link 100" />
 </launch>

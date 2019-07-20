@@ -39,3 +39,5 @@
 minesweeper_ws/build/
 minesweeper_ws/devel/
 minesweeper_ws/src/CMakeLists.txt
+minesweeper_ws/src/imu_tools/
+minesweeper_ws/src/world_pub/

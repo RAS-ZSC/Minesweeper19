@@ -192,7 +192,7 @@ def buttonscontrol(event):
         Mode = 'Q'
             
    # arduino.write(Mode)
-    rospy.Rate(100).sleep()
+    rospy.Rate(50).sleep()
         
 
 #Announcment for start 
