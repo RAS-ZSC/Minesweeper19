@@ -47,10 +47,11 @@ void HBridge::setMotorsPWM(bool m1, bool m2, bool m3, bool m4, uint8_t pwm1, uin
 }
 
 void HBridge::setMotors(uint8_t m1, uint8_t m2, uint8_t m3, uint8_t m4) {
-   digitalWrite(this->m1, m1);
-   digitalWrite(this->m2, m2);
-   digitalWrite(this->m3, m3);
-   digitalWrite(this->m4, m4);
+//replace it to digitalWrite for other kinds of drivers
+   analogWrite(this->m1, m1);
+   analogWrite(this->m2, m2);
+   analogWrite(this->m3, m3);
+   analogWrite(this->m4, m4);
 
    if (PWMEnabled) {
         analogWrite(this->pwm1, 240);  //review driver's restrictions 
@@ -59,18 +60,23 @@ void HBridge::setMotors(uint8_t m1, uint8_t m2, uint8_t m3, uint8_t m4) {
 }
 
 void HBridge::move(short l, short r) {
+/*replace first four numbers with only 0,1 with other drivers
+  and use setMotorsPWM();
+  for example setMotorsPWM(1, 0, 0, 1, l, r); instead of 
+  setMotors(l, 0, 0, r); */ 
    if (l == 0 && r == 0)
-      setMotorsPWM(0, 0, 0, 0, 0, 0);
+      setMotors(0, 0, 0, 0);
    else if (l >= 0 && r >= 0)
-      setMotorsPWM(1, 0, 0, 1, l, r);
+      setMotors(l, 0, 0, r);
    else if (l <= 0 && r <= 0)
-      setMotorsPWM(0, 1, 1, 0, -l, -r);
+      setMotors(0, -l, -r, 0);
    else if (l >= 0 && r <= 0)
-      setMotorsPWM(1, 0, 1, 0, l, -r);
+      setMotors(l, 0, -r, 0);
    else if (l <= 0 && r >= 0)
-      setMotorsPWM(0, 1, 0, 1, -l, r);
+      setMotors(0, -l, 0, r);
 }
 
+//replace 240 to HIGH for other kinds of drivers
 void HBridge::forward() {
    setMotors(240, 0, 240, 0);
 }

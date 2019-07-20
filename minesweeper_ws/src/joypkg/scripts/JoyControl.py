@@ -95,6 +95,7 @@ def buttonscontrol(event):
             R = -r
         
         print (L, R)
+	pub.publish('Z'+ ',' + str(L) + ',' + str(R))
         #print (X, Y)
 
    #TODO
@@ -192,7 +193,7 @@ def buttonscontrol(event):
         Mode = 'Q'
             
    # arduino.write(Mode)
-    rospy.Rate(50).sleep()
+    rospy.Rate(100).sleep()
         
 
 #Announcment for start 

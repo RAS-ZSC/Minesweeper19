@@ -13,7 +13,7 @@ private:
 
 public:
   JoyControl(HBridge&);
-  void handle(char);
+  void handle(char[]);
 };
 
 #endif
