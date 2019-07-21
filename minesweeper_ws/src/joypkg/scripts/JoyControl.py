@@ -58,7 +58,7 @@ print("--------------")
  
 X = 0
 Y = 0
-res = 255
+res = 249
 # Mappinng butttons    
 def buttonscontrol(event):
     global X
@@ -95,7 +95,8 @@ def buttonscontrol(event):
             R = -r
         
         print (L, R)
-	pub.publish('Z'+ ',' + str(L) + ',' + str(R))
+	if L != 0 or R!=0
+		pub.publish('Z'+ ',' + str(L) + ',' + str(R))
         #print (X, Y)
 
    #TODO
