@@ -116,17 +116,17 @@ if (l > 0 && r > 0){
 else if (l > 0 && r < 0){
    setMotors(0, 1, 1, 0);
    analogWrite(pwm1, l);
-   analogWrite(pwm2, r);
+   analogWrite(pwm2, -r);
 }
 else if (l < 0 && r > 0){
    setMotors(1, 0, 0, 0);
-   analogWrite(pwm1, l);
+   analogWrite(pwm1, -l);
    analogWrite(pwm2, r);
 }
 else if (l < 0 && r < 0){
    setMotors(1, 0, 0, 1);
-   analogWrite(pwm1, l);
-   analogWrite(pwm2, r);
+   analogWrite(pwm1, -l);
+   analogWrite(pwm2, -r);
 }
 else{
 stop();
