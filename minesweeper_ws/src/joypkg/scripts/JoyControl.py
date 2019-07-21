@@ -55,10 +55,10 @@ numbuttons = j.get_numbuttons()
 print("numbuttons")
 print(numbuttons)
 print("--------------")
- 
+int flag = 0 
 X = 0
 Y = 0
-res = 249
+res = 249 #change it to 255
 # Mappinng butttons    
 def buttonscontrol(event):
     global X
@@ -97,6 +97,10 @@ def buttonscontrol(event):
         print (L, R)
 	if L != 0 or R!=0
 		pub.publish('Z'+ ',' + str(L) + ',' + str(R))
+		flag=0
+	elif flag = 0 and L == 0 and R == 0 
+		pub.publish("Z,0,0")
+		flag=1
         #print (X, Y)
 
    #TODO
