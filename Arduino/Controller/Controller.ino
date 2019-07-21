@@ -1,6 +1,7 @@
+#define NORMAL
 
 #include <HBridge.h>
-HBridge hbridge(3, 5, 10, 9);//, 10, 11);
+  HBridge hbridge(3, 5, 10, 9);//, 10, 11);
 
 /* Control Mehtods */
 char x ;

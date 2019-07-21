@@ -10,11 +10,11 @@ HBridge::HBridge(uint8_t lm1, uint8_t lm2, uint8_t rm1, uint8_t rm2, uint8_t pwm
    this->pwm2 = pwm2;
    this->EN1 = EN1;
    this->EN2 = EN2;
-   this->C1 = c1;
+   this->C1 = C1;
    this->C2 = C2;
 
-   speed1 = 250;
-   speed2 = 250;
+   m1Speed = 249;
+   m2Speed = 249;
 
    pinMode(lm1, OUTPUT);
    pinMode(lm2, OUTPUT);
@@ -46,8 +46,8 @@ HBridge::HBridge(uint8_t lm1, uint8_t lm2, uint8_t rm1, uint8_t rm2, uint8_t pwm
    this->EN1 = EN1;
    this->EN2 = EN2;
    
-   speed1 = 249;
-   speed2 = 249;
+   m1Speed = 249;
+   m2Speed = 249;
 
    pinMode(lm1, OUTPUT);
    pinMode(lm2, OUTPUT);
@@ -66,26 +66,26 @@ void HBridge::setMotors(bool m1, bool m2, bool m3, bool m4) {
 
 void HBridge::forward() {
    setMotors(1, 0, 1, 0);
-   analogWrite(pwm1, speed1);
-   analogWrite(pwm2, speed2);
+   analogWrite(pwm1, m1Speed);
+   analogWrite(pwm2, m2Speed);
 }
 
 void HBridge::backward() {
    setMotors(0, 1, 0, 1);
-   analogWrite(pwm1, speed1);
-   analogWrite(pwm2, speed2);
+   analogWrite(pwm1, m1Speed);
+   analogWrite(pwm2, m2Speed);
 }
 
 void HBridge::left() {
    setMotors(1, 0, 0, 1);
-   analogWrite(pwm1, speed1);
-   analogWrite(pwm2, speed2);
+   analogWrite(pwm1, m1Speed);
+   analogWrite(pwm2, m2Speed);
 }
 
 void HBridge::right() {
    setMotors(0, 1, 1, 0);
-   analogWrite(pwm1, speed1);
-   analogWrite(pwm2, speed2);
+   analogWrite(pwm1, m1Speed);
+   analogWrite(pwm2, m2Speed);
 }
 
 void HBridge::stop() {
@@ -94,15 +94,41 @@ void HBridge::stop() {
    digitalWrite(pwm2, 0);
 }
 
-void HBridge::setSpeed(m1Speed, m2Speed2){
+void HBridge::setSpeed(int16_t m1Speed, int16_t m2Speed2){
    this->m1Speed = m1Speed;
    this->m2Speed = m2Speed;
 }
 
-float HBridge::getM1Current(){
+uint16_t HBridge::getM1Current(){
    return analogRead(C1);
 }
 
-float HBridge::getM2Current(){
+uint16_t HBridge::getM2Current(){
    return analogRead(C2);
+}
+
+void HBridge::move(int16_t l, int16_t r){
+if (l > 0 && r > 0){
+   setMotors(1, 0, 1, 0);
+   analogWrite(pwm1, l);
+   analogWrite(pwm2, r);
+}
+else if (l > 0 && r < 0){
+   setMotors(0, 1, 1, 0);
+   analogWrite(pwm1, l);
+   analogWrite(pwm2, r);
+}
+else if (l < 0 && r > 0){
+   setMotors(1, 0, 0, 0);
+   analogWrite(pwm1, l);
+   analogWrite(pwm2, r);
+}
+else if (l < 0 && r < 0){
+   setMotors(1, 0, 0, 1);
+   analogWrite(pwm1, l);
+   analogWrite(pwm2, r);
+}
+else{
+stop();
+}
 }
