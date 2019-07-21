@@ -1,6 +1,4 @@
 #include <JoyControl.h>
-#include <cstring>
-#include <stdlib>
 JoyControl::JoyControl(HBridge& hbridge) : hbridge(hbridge) {
 
 }
