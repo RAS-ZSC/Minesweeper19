@@ -59,7 +59,7 @@ void HBridge::setMotors(uint8_t m1, uint8_t m2, uint8_t m3, uint8_t m4) {
    }
 }
 
-void HBridge::move(short l, short r) {
+void HBridge::move(int16_t l, int16_t r) {
 /*replace first four numbers with only 0,1 with other drivers
   and use setMotorsPWM();
   for example setMotorsPWM(1, 0, 0, 1, l, r); instead of 

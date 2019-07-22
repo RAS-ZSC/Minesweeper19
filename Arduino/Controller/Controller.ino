@@ -4,7 +4,6 @@
   HBridge hbridge(3, 5, 10, 9);//, 10, 11);
 
 /* Control Mehtods */
-char x ;
 
 #include <JoyControl.h>
 JoyControl joystick(hbridge);
@@ -14,8 +13,7 @@ JoyControl joystick(hbridge);
 ros::NodeHandle  nh;
 
 void ROS_CALLBACK(const std_msgs::String &msg){
-   x = msg.data[0] ;
-   joystick.handle(x);  
+   joystick.handle(msg.data);  
 }
 
 ros::Subscriber<std_msgs::String> s("Joystick_",  &ROS_CALLBACK);

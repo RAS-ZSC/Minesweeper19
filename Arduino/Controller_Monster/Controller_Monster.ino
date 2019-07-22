@@ -10,7 +10,6 @@ HBridge hbridge(7, 8, 4, 9, 5, 6, A0, A1, A2, A3);
 #include <JoyControl_Monster.h>
 JoyControl joystick(hbridge);
 
-char x;
 
 std_msgs::Int16 m1Current;
 std_msgs::Int16 m2Current;
@@ -19,8 +18,7 @@ ros::Publisher m2CurrentPub("lmotor_current", &m1Current);
 ros::Publisher m1CurrentPub("rmotor_current", &m2Current);
 
 void ROS_CALLBACK(const std_msgs::String &msg) {
-  x = msg.data[0] ;
-  joystick.handle(x);
+  joystick.handle(msg.data);
 }
 
 ros::Subscriber<std_msgs::String> s("Joystick_",  &ROS_CALLBACK);
