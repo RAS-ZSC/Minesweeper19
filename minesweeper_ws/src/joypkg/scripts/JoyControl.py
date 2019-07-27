@@ -181,8 +181,8 @@ def buttonscontrol(event):
         elif event.button == PS3_BUTTON_LT :
             print("BUTTON_LT")
             #rospy.loginfo('LT')
-            pub.publish('R')
-            Mode = 'R'
+            pub.publish('A')
+            Mode = 'A'
         elif event.button == PS3_BUTTON_Back :
             print("BUTTON_Back")
             #rospy.loginfo('Back')
@@ -208,7 +208,6 @@ def buttonscontrol(event):
 while not rospy.is_shutdown():
     #read in joystick events
     events = pygame.event.get()
-   
     # and process them
     for event in events:
         buttonscontrol(event)

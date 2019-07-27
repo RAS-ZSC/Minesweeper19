@@ -9,7 +9,7 @@
     textfile="$(find minesweeper_continuous)/urdf/minesweeper_continuous.urdf" />
   <param
     name="use_gui"
-    value="True" />
+    value="False" />
   <node
     name="joint_state_publisher"
     pkg="joint_state_publisher"

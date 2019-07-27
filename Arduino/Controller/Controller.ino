@@ -14,8 +14,8 @@ JoyControl joystick(hbridge);
 ros::NodeHandle  nh;
 
 void ROS_CALLBACK(const std_msgs::String &msg){
-   x = msg.data[0] ;
-   joystick.handle(x);  
+   
+   joystick.handle(msg.data);  
 }
 
 ros::Subscriber<std_msgs::String> s("Joystick_",  &ROS_CALLBACK);
