@@ -13,8 +13,8 @@ HBridge::HBridge(uint8_t lm1, uint8_t lm2, uint8_t rm1, uint8_t rm2, uint8_t pwm
    this->C1 = C1;
    this->C2 = C2;
 
-   m1Speed = 249;
-   m2Speed = 249;
+   m1Speed = 100;
+   m2Speed = 100;
 
    pinMode(lm1, OUTPUT);
    pinMode(lm2, OUTPUT);
@@ -46,8 +46,8 @@ HBridge::HBridge(uint8_t lm1, uint8_t lm2, uint8_t rm1, uint8_t rm2, uint8_t pwm
    this->EN1 = EN1;
    this->EN2 = EN2;
    
-   m1Speed = 249;
-   m2Speed = 249;
+   m1Speed = 100;
+   m2Speed = 100;
 
    pinMode(lm1, OUTPUT);
    pinMode(lm2, OUTPUT);
@@ -119,7 +119,7 @@ else if (l > 0 && r < 0){
    analogWrite(pwm2, -r);
 }
 else if (l < 0 && r > 0){
-   setMotors(1, 0, 0, 0);
+   setMotors(1, 0, 0, 1);
    analogWrite(pwm1, -l);
    analogWrite(pwm2, r);
 }

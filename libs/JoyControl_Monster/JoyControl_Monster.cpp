@@ -38,6 +38,22 @@ void JoyControl::handle(char code[]) {
    else if (signal[0][0] == 'Q')
       hbridge.stop();
 
+   else if (signal[0][0] == 'B')
+      if (Speed <= 240){
+	 Speed += 10;
+         hbridge.setSpeed(Speed, Speed);
+      }
+
+   else if (signal[0][0] == 'P')
+      if (Speed >= 10){
+         Speed -= 10;
+         hbridge.setSpeed(Speed, Speed);
+      }
+
+   else if (signal[0][0] == 'S'){
+      Speed = 240;  
+      hbridge.setSpeed(240, 240);
+      }
    else if(signal[0][0] == 'Z'){
       //TODO convert L,R into ints and pass them to hbridge
       int16_t l = atoi(signal[1]);

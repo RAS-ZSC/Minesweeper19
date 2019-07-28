@@ -8,7 +8,7 @@ class JoyControl {
 private:
    /*TODO handle analog values*/
    /*int x = 0, y = 0;*/
-  
+   int16_t Speed;
    HBridge& hbridge;  /* Attached H-Bridge */
 
 public:

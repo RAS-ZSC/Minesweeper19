@@ -54,12 +54,12 @@ void HBridge::setMotors(uint8_t m1, uint8_t m2, uint8_t m3, uint8_t m4) {
    analogWrite(this->m4, m4);
 
    if (PWMEnabled) {
-        analogWrite(this->pwm1, 240);  //review driver's restrictions 
-        analogWrite(this->pwm2, 240);
+        digitalWrite(this->pwm1, HIGH);  //review driver's restrictions 
+        digitalWrite(this->pwm2, HIGH);
    }
 }
 
-void HBridge::move(short l, short r) {
+void HBridge::move(int16_t l, int16_t r) {
 /*replace first four numbers with only 0,1 with other drivers
   and use setMotorsPWM();
   for example setMotorsPWM(1, 0, 0, 1, l, r); instead of 
@@ -78,19 +78,19 @@ void HBridge::move(short l, short r) {
 
 //replace 240 to HIGH for other kinds of drivers
 void HBridge::forward() {
-   setMotors(240, 0, 240, 0);
+   setMotors(speed, 0, speed, 0);
 }
 
 void HBridge::backward() {
-   setMotors(0, 240, 0, 240);
+   setMotors(0, speed, 0, speed);
 }
 
 void HBridge::left() {
-   setMotors(240, 0, 0, 240);
+   setMotors(speed, 0, 0, speed);
 }
 
 void HBridge::right() {
-   setMotors(0, 240, 240, 0);
+   setMotors(0, speed, speed, 0);
 }
 
 void HBridge::stop() {
