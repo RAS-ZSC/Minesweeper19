@@ -10,12 +10,6 @@ HBridge hbridge(7, 8, 4, 9, 5, 6, A0, A1, A2, A3);
 #include <JoyControl_Monster.h>
 JoyControl joystick(hbridge);
 
-<<<<<<< HEAD
-//std_msgs::Int16 m1Current;
-//std_msgs::Int16 m2Current;
-=======
->>>>>>> 152d76b0bb0db15ac25bf2c31343b2b417a2ac41
-
 /*ros::Publisher m2CurrentPub("lmotor_current", &m1Current);
 ros::Publisher m1CurrentPub("rmotor_current", &m2Current);
 */

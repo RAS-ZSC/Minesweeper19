@@ -1,7 +1,7 @@
 #include <NewPing.h>
 
 #include <ros.h>
-#include <std_msgs/Int16.h>
+#include <std_msgs/Int32.h>
 #include <ros/time.h>
 
 #include <visualization_msgs/Marker.h>
@@ -9,8 +9,8 @@
 
 ros::NodeHandle nh;
 
-std_msgs::Int16 lwheel_count;
-std_msgs::Int16 rwheel_count;
+std_msgs::Int32 lwheel_count;
+std_msgs::Int32 rwheel_count;
 
 enum PinAssignments {
   lencoderPinA = 2,   // right
@@ -79,8 +79,8 @@ void loop() {
   rwheel_pub.publish( &rwheel_count );
 
   nh.spinOnce();
-
-  if (metalDetector.detect() > MINE_THRESH) {
+  delay(100);
+  /*if (metalDetector.detect() > MINE_THRESH) {
     digitalWrite(LED_BUILTIN, HIGH);
     delay(500);
     digitalWrite(LED_BUILTIN, LOW);
@@ -94,7 +94,7 @@ void loop() {
       spawnUndergroundMine();
       nh.spinOnce();
     }
-  }
+  }*/
 }
 
 void spawnMine() {

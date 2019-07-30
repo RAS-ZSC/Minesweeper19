@@ -7,7 +7,7 @@ sensor_msgs::Joy msg;
 #include <HBridge.h>
 HBridge hbridge(3, 5, 10, 9);
 
-#include <joy_ps4_new.h>
+#include <joy_ps4_IBS.h>
 JoyControl joystick(hbridge);
 
 void messageCb( const sensor_msgs::Joy& msg) {

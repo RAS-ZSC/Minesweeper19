@@ -1,4 +1,4 @@
-#include <joy_ps4_new.h>
+#include <joy_ps4_Monster.h>
 #include <sensor_msgs/Joy.h>
 
 JoyControl::JoyControl(HBridge& hbridge) : hbridge(hbridge) {
@@ -27,21 +27,21 @@ void JoyControl::handle(sensor_msgs::Joy msg) {
   L2_pwm = map(L2_pwm,-125 ,125 ,0 ,255);
 
    if (R2 == 1){
-     // hbridge.setSpeed(R2_pwm, R2_pwm);
+      hbridge.setSpeed(R2_pwm, R2_pwm);
       hbridge.forward();
    }
 
    else if (L2 == 1) {
-     // hbridge.setSpeed(L2_pwm, L2_pwm);
+      hbridge.setSpeed(L2_pwm, L2_pwm);
       hbridge.backward();
    }
 
    else if (R1 == 1){
-     // hbridge.setSpeed(130, 130); //turning speed
+      hbridge.setSpeed(130, 130); //turning speed
       hbridge.right();
    }
    else if (L1 == 1){
-     // hbridge.setSpeed(130, 130); 
+      hbridge.setSpeed(130, 130); 
       hbridge.left(); 
    }
    else

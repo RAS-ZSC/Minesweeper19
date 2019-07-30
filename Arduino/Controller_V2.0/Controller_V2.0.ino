@@ -7,7 +7,7 @@ sensor_msgs::Joy msg;
 #include <HBridge_Monster.h>
 HBridge hbridge(7, 8, 4, 9, 5, 6, A0, A1, A2, A3);
 
-#include <joy_ps4.h>
+#include <joy_ps4_Monster.h>
 JoyControl joystick(hbridge);
 
 void messageCb( const sensor_msgs::Joy& msg) {
