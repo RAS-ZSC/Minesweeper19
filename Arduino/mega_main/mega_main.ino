@@ -1,5 +1,3 @@
-#include <NewPing.h>
-
 #include <ros.h>
 #include <std_msgs/Int32.h>
 #include <ros/time.h>
@@ -44,17 +42,11 @@ uint16_t marker_id = 0;
 
 #define MINE_THRESH 2000
 
-#include <MetalDetector.h>
-MetalDetector metalDetector(METAL_DETECTOR_PIN);
-
 // Metal detector pin
 visualization_msgs::Marker marker;
 ros::Publisher mark("mark", &marker);
 
 // TODO add publishers for the encoders
-
-//ultrasonic vars
-NewPing frontUltrasonic(TRIG, ECHO, MAX_DISTANCE);
 
 void setup() {
   pinMode(13, OUTPUT);
@@ -80,16 +72,6 @@ void loop() {
 
   nh.spinOnce();
   delay(10);
-  if (metalDetector.detect() > MINE_THRESH) {
-    if (frontUltrasonic.ping_cm()) {
-      spawnMine();
-      nh.spinOnce();
-    } else
-    {
-      spawnUndergroundMine();
-      nh.spinOnce();
-    }
-  }
 }
 
 void spawnMine() {

@@ -1,0 +1,7 @@
+<launch>
+<node pkg="rosserial_python" type="rosserial_python" name="rosserial_python" required="true">
+    <param name="node" value="serial_node.py"/>
+    <param name="port" value="/dev/ttyACM1"/>
+    <param name="baud_rate" value="_baud:=576000"/>
+</node>
+</launch>

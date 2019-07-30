@@ -1,0 +1,30 @@
+<launch>
+<node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf">
+  <param name="output_frame" value="base_link"/>
+  <param name="base_footprint_frame" value="base_link"/>
+  <param name="freq" value="30.0"/>
+  <param name="sensor_timeout" value="1.0"/>  
+  <param name="odom_used" value="true"/>
+  <param name="imu_used" value="true"/>
+  <param name="vo_used" value="false"/>
+
+</node>
+
+<node pkg="mpu6050_serial_to_imu" type="mpu6050_serial_to_imu_node" name="mpu6050_serial_to_imu_node" required="true">
+    <param name="port" value="/dev/ttyACM0"/>
+</node>
+
+
+
+<node pkg="differential_drive" type="diff_tf.py" name="encoder_rotary" output="screen">
+		<param name="base_width" value="0.5"/>
+		<param name="ticks_meter" value="466"/>
+		
+</node>
+
+<node pkg="rosserial_python" type="rosserial_python" name="rosserial_python" required="true">
+    <param name="node" value="serial_node.py"/>
+    <param name="port" value="/dev/ttyACM1"/>
+    <param name="baud_rate" value="_baud:=576000"/>
+</node>
+</launch>

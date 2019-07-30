@@ -11,18 +11,18 @@ Stepper_CNC stepperY(8, 6, 3);
 
 JoyControl joy(stepperX, stepperY);
 
-void messageCb(const sensor_msgs::Joy msg){
+void messageCb(const sensor_msgs::Joy msg) {
   joy.handle(msg);
 }
 
 ros::Subscriber<sensor_msgs::Joy> sub("joy", messageCb);
 
 void setup() {
-nh.initNode();
-nh.subscribe(sub);
+  nh.initNode();
+  nh.subscribe(sub);
 }
 
 void loop() {
-nh.spinOnce();
-delay(1);
+  nh.spinOnce();
+  delay(1);
 }

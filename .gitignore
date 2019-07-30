@@ -34,6 +34,7 @@
 # swap and backup files
 *~
 *.swp
+*.tmp
 
 # minesweeper_ws build files 
 minesweeper_ws/build/
