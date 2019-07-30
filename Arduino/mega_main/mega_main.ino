@@ -79,14 +79,9 @@ void loop() {
   rwheel_pub.publish( &rwheel_count );
 
   nh.spinOnce();
-  delay(100);
-  /*if (metalDetector.detect() > MINE_THRESH) {
-    digitalWrite(LED_BUILTIN, HIGH);
-    delay(500);
-    digitalWrite(LED_BUILTIN, LOW);
-
+  delay(10);
+  if (metalDetector.detect() > MINE_THRESH) {
     if (frontUltrasonic.ping_cm()) {
-
       spawnMine();
       nh.spinOnce();
     } else
@@ -94,7 +89,7 @@ void loop() {
       spawnUndergroundMine();
       nh.spinOnce();
     }
-  }*/
+  }
 }
 
 void spawnMine() {
