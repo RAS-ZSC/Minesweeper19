@@ -2,7 +2,7 @@
 #include <MetalDetector.h>
 long int time_low;
 long int time_high;
-long int timeon;
+bool run;
 
 MetalDetector::MetalDetector(uint8_t pin) {
 
@@ -16,16 +16,14 @@ MetalDetector::MetalDetector(uint8_t pin) {
 long MetalDetector::detect() {
 
   while(digitalRead(pin)==HIGH){
-    time_high=millis();
-    while(1){
-      if(digitalRead(pin)==LOW){
-        time_low=millis();
-    break;
+    reading = pulseIn(12, HIGH);
+    if(reading > 50){
+      run = 1;
     }
   }
 
   timeon=time_low-time_high;
 
   }
-  return timeon;
+  return run;
 }
