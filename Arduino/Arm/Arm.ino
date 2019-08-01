@@ -1,4 +1,4 @@
-#include <Joy_Arm.h>
+  #include <Joy_Arm.h>
 #include <Stepper_CNC.h>
 #include <ros.h>
 #include <sensor_msgs/Joy.h>
@@ -11,7 +11,7 @@ Stepper_CNC stepperY(8, 6, 3);
 
 JoyControl joy(stepperX, stepperY);
 
-void messageCb(const sensor_msgs::Joy msg) {
+void messageCb(const sensor_msgs::Joy& msg) {
   joy.handle(msg);
 }
 
