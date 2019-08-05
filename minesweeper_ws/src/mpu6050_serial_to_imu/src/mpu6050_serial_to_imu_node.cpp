@@ -41,15 +41,15 @@ int main(int argc, char** argv)
   ros::init(argc, argv, "mpu6050_serial_to_imu_node");
 
   ros::NodeHandle private_node_handle("~");
-  private_node_handle.param<std::string>("port", port, "/dev/ttyACM0");
-  private_node_handle.param<std::string>("tf_parent_frame_id", tf_parent_frame_id, "link1"); //imu_base
+  private_node_handle.param<std::string>("port", port, "/dev/ttyUSB0");
+  private_node_handle.param<std::string>("tf_parent_frame_id", tf_parent_frame_id, "base_link"); //imu_base
   private_node_handle.param<std::string>("tf_frame_id", tf_frame_id, "base_link");
-  private_node_handle.param<std::string>("frame_id", frame_id, "base_link");//imu_link
+  private_node_handle.param<std::string>("frame_id", frame_id, "odom_combined");//imu_link
   private_node_handle.param<double>("time_offset_in_seconds", time_offset_in_seconds, 0.0);
-  private_node_handle.param<bool>("broadcast_tf", broadcast_tf, true);
-  private_node_handle.param<double>("linear_acceleration_stddev", linear_acceleration_stddev, 0.0);
-  private_node_handle.param<double>("angular_velocity_stddev", angular_velocity_stddev, 0.0);
-  private_node_handle.param<double>("orientation_stddev", orientation_stddev, 0.0);
+  private_node_handle.param<bool>("broadcast_tf", broadcast_tf, false);
+  private_node_handle.param<double>("linear_acceleration_stddev", linear_acceleration_stddev, 0.01);
+  private_node_handle.param<double>("angular_velocity_stddev", angular_velocity_stddev, 0.01);
+  private_node_handle.param<double>("orientation_stddev", orientation_stddev, 0.01);
 
   ros::NodeHandle nh("imu");
   ros::Publisher imu_pub = nh.advertise<sensor_msgs::Imu>("data", 50);

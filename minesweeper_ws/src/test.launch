@@ -1,5 +1,5 @@
 <launch>
-<node pkg="rosserial_python" type="serial_node.py" name="rosserial_python">
+<node pkg="rosserial_python" type="serial_node.py" name="rosserial_python1">
 
     <param name="port" value="/dev/ttyACM0"/>
     <param name="baud" value="576000"/>
