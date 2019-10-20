@@ -44,7 +44,7 @@ int main(int argc, char** argv)
   private_node_handle.param<std::string>("port", port, "/dev/ttyUSB0");
   private_node_handle.param<std::string>("tf_parent_frame_id", tf_parent_frame_id, "base_link"); //imu_base
   private_node_handle.param<std::string>("tf_frame_id", tf_frame_id, "base_link");
-  private_node_handle.param<std::string>("frame_id", frame_id, "odom_combined");//imu_link
+  private_node_handle.param<std::string>("frame_id", frame_id, "base_link");//odom_combined
   private_node_handle.param<double>("time_offset_in_seconds", time_offset_in_seconds, 0.0);
   private_node_handle.param<bool>("broadcast_tf", broadcast_tf, false);
   private_node_handle.param<double>("linear_acceleration_stddev", linear_acceleration_stddev, 0.01);
